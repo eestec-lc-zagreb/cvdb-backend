@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,6 +17,7 @@ import java.time.ZonedDateTime;
 public class Subscription {
 
     @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private SubscriptionId id;
 
     @ManyToOne
@@ -31,12 +34,23 @@ public class Subscription {
     @Column(name = "subscription_end", nullable = false)
     private ZonedDateTime subscriptionEnd;
 
+    public Subscription() {
+        this.id = new SubscriptionId();
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Subscription user(User user) {
+        this.id.userId = user.getId();
+        this.user = user;
+
+        return this;
     }
 
     public Event getEvent() {
@@ -47,12 +61,25 @@ public class Subscription {
         this.event = event;
     }
 
+    public Subscription event(Event event) {
+        this.id.eventId = event.getId();
+        this.event = event;
+
+        return this;
+    }
+
     public ZonedDateTime getSubscriptionStart() {
         return subscriptionStart;
     }
 
     public void setSubscriptionStart(ZonedDateTime subscriptionStart) {
         this.subscriptionStart = subscriptionStart;
+    }
+
+    public Subscription subscriptionStart(ZonedDateTime subscriptionStart) {
+        this.subscriptionStart = subscriptionStart;
+
+        return this;
     }
 
     public ZonedDateTime getSubscriptionEnd() {
@@ -63,14 +90,30 @@ public class Subscription {
         this.subscriptionEnd = subscriptionEnd;
     }
 
+    public Subscription subscriptionEnd(ZonedDateTime subscriptionEnd) {
+        this.subscriptionEnd = subscriptionEnd;
+
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Subscription{" +
+                "id=" + id +
+                ", user=" + user +
+                ", event=" + event +
+                ", subscriptionStart=" + subscriptionStart +
+                ", subscriptionEnd=" + subscriptionEnd +
+                '}';
+    }
+
     @Embeddable
     public static class SubscriptionId implements Serializable {
 
         @Column(name = "user_id")
-        protected Integer userId;
-
+        Integer userId;
         @Column(name = "event_id")
-        protected Integer eventId;
+        Integer eventId;
 
         public SubscriptionId() {
 

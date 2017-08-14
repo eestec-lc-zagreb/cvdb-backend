@@ -27,12 +27,24 @@ public class Participation {
     @Column(name = "cv")
     private String cv;
 
+    public Participation() {
+        this.id = new ParticipationId();
+    }
+
     public Student getStudent() {
         return student;
     }
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+
+    public Participation student(Student student) {
+        this.id.studentId = student.getId();
+        this.student = student;
+
+        return this;
     }
 
     public Event getEvent() {
@@ -43,12 +55,25 @@ public class Participation {
         this.event = event;
     }
 
+    public Participation event(Event event) {
+        this.id.eventId = event.getId();
+        this.event = event;
+
+        return this;
+    }
+
     public String getCv() {
         return cv;
     }
 
     public void setCv(String cv) {
         this.cv = cv;
+    }
+
+    public Participation cv(String cv) {
+        this.cv = cv;
+
+        return this;
     }
 
     @Override
@@ -63,10 +88,10 @@ public class Participation {
     public static class ParticipationId implements Serializable {
 
         @Column(name = "student_id")
-        protected Integer studentId;
+        Integer studentId;
 
         @Column(name = "event_id")
-        protected Integer eventId;
+        Integer eventId;
 
         public ParticipationId() {
 

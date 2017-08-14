@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 @EnableConfigurationProperties
-@EntityScan(basePackageClasses =  {
-		User.class
+@EntityScan(basePackageClasses = {
+        User.class
 })
 public class CvdbBackendApplication {
 

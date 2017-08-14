@@ -35,12 +35,24 @@ public class Event {
         this.id = id;
     }
 
+    public Event id(Integer id) {
+        this.id = id;
+
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Event name(String name) {
+        this.name = name;
+
+        return this;
     }
 
     public String getShortName() {
@@ -51,6 +63,12 @@ public class Event {
         this.shortName = shortName;
     }
 
+    public Event shortName(String shortName) {
+        this.shortName = shortName;
+
+        return this;
+    }
+
     public String getYear() {
         return year;
     }
@@ -59,12 +77,24 @@ public class Event {
         this.year = year;
     }
 
+    public Event year(String year) {
+        this.year = year;
+
+        return this;
+    }
+
     public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Event createdAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+
+        return this;
     }
 
     @Override
@@ -80,5 +110,16 @@ public class Event {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", shortName='" + shortName + '\'' +
+                ", year='" + year + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }

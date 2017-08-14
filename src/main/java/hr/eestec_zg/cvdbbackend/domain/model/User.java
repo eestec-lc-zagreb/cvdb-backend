@@ -48,12 +48,24 @@ public class User {
         this.id = id;
     }
 
+    public User id(Integer id) {
+        this.id = id;
+
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User name(String name) {
+        this.name = name;
+
+        return this;
     }
 
     public String getUsername() {
@@ -64,12 +76,24 @@ public class User {
         this.username = username;
     }
 
+    public User username(String username) {
+        this.username = username;
+
+        return this;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User password(String password) {
+        this.password = password;
+
+        return this;
     }
 
     public Role getRole() {
@@ -80,12 +104,24 @@ public class User {
         this.role = role;
     }
 
+    public User role(Role role) {
+        this.role = role;
+
+        return this;
+    }
+
     public Boolean getEnabled() {
         return enabled;
     }
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public User enabled(Boolean enabled) {
+        this.enabled = enabled;
+
+        return this;
     }
 
     public ZonedDateTime getModifiedAt() {
@@ -96,12 +132,24 @@ public class User {
         this.modifiedAt = modifiedAt;
     }
 
+    public User modifiedAt(ZonedDateTime modifiedAt) {
+        this.modifiedAt = modifiedAt;
+
+        return this;
+    }
+
     public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public User createdAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+
+        return this;
     }
 
     @Override

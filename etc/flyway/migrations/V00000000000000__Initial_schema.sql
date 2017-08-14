@@ -73,7 +73,7 @@ CREATE TABLE subscription (
   subscription_start TIMESTAMP NOT NULL DEFAULT current_timestamp,
   subscription_end   TIMESTAMP NOT NULL DEFAULT current_timestamp,
   CONSTRAINT pk_subscription PRIMARY KEY (user_id, event_id),
-  CONSTRAINT fk_subscription_user FOREIGN KEY (user_id) REFERENCES student (id)
+  CONSTRAINT fk_subscription_user FOREIGN KEY (user_id) REFERENCES users (id)
   ON DELETE CASCADE,
   CONSTRAINT fk_subscription_event FOREIGN KEY (event_id) REFERENCES event (id)
   ON DELETE CASCADE

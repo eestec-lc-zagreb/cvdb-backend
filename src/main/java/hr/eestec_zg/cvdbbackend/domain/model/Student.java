@@ -45,12 +45,24 @@ public class Student {
         this.id = id;
     }
 
+    public Student id(Integer id) {
+        this.id = id;
+
+        return this;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Student firstName(String firstName) {
+        this.firstName = firstName;
+
+        return this;
     }
 
     public String getLastName() {
@@ -61,12 +73,24 @@ public class Student {
         this.lastName = lastName;
     }
 
+    public Student lastName(String lastName) {
+        this.lastName = lastName;
+
+        return this;
+    }
+
     public Integer getYear() {
         return year;
     }
 
     public void setYear(Integer year) {
         this.year = year;
+    }
+
+    public Student year(Integer year) {
+        this.year = year;
+
+        return this;
     }
 
     public StudyProgramme getStudyProgramme() {
@@ -77,6 +101,12 @@ public class Student {
         this.studyProgramme = studyProgramme;
     }
 
+    public Student studyProgramme(StudyProgramme studyProgramme) {
+        this.studyProgramme = studyProgramme;
+
+        return this;
+    }
+
     public ZonedDateTime getModifiedAt() {
         return modifiedAt;
     }
@@ -85,12 +115,24 @@ public class Student {
         this.modifiedAt = modifiedAt;
     }
 
+    public Student modifiedAt(ZonedDateTime modifiedAt) {
+        this.modifiedAt = modifiedAt;
+
+        return this;
+    }
+
     public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Student createdAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+
+        return this;
     }
 
     @Override
