@@ -27,7 +27,7 @@ CREATE TABLE event (
   id         SERIAL       NOT NULL,
   name       VARCHAR(100) NOT NULL,
   short_name VARCHAR(20),
-  year       CHAR(4)      NOT NULL,
+  year       VARCHAR(4)   NOT NULL,
   created_at TIMESTAMP    NOT NULL DEFAULT current_timestamp,
   CONSTRAINT pk_event PRIMARY KEY (id)
 );
@@ -56,15 +56,15 @@ CREATE TABLE student (
 CREATE INDEX idx_student_study_programme
   ON student (study_programme);
 
-CREATE TABLE student_event (
+CREATE TABLE participation (
   student_id INTEGER      NOT NULL,
   event_id   INTEGER      NOT NULL,
   cv         VARCHAR(255) NOT NULL,
-  CONSTRAINT pk_student_event PRIMARY KEY (student_id, event_id),
-  CONSTRAINT fk_student_event_student FOREIGN KEY (student_id) REFERENCES student (id)
-    ON DELETE CASCADE,
-  CONSTRAINT fk_student_event_event FOREIGN KEY (event_id) REFERENCES event (id)
-    ON DELETE CASCADE
+  CONSTRAINT pk_participation PRIMARY KEY (student_id, event_id),
+  CONSTRAINT fk_participation_student FOREIGN KEY (student_id) REFERENCES student (id)
+  ON DELETE CASCADE,
+  CONSTRAINT fk_participation_event FOREIGN KEY (event_id) REFERENCES event (id)
+  ON DELETE CASCADE
 );
 
 CREATE TABLE subscription (
@@ -74,9 +74,9 @@ CREATE TABLE subscription (
   subscription_end   TIMESTAMP NOT NULL DEFAULT current_timestamp,
   CONSTRAINT pk_subscription PRIMARY KEY (user_id, event_id),
   CONSTRAINT fk_subscription_user FOREIGN KEY (user_id) REFERENCES student (id)
-    ON DELETE CASCADE,
+  ON DELETE CASCADE,
   CONSTRAINT fk_subscription_event FOREIGN KEY (event_id) REFERENCES event (id)
-    ON DELETE CASCADE
+  ON DELETE CASCADE
 );
 
 INSERT INTO user_roles (role) VALUES ('ADMIN');
