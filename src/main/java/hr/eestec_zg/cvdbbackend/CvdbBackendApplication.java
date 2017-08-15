@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.system.ApplicationPidFileWriter;
 
 @SpringBootApplication
 @EnableConfigurationProperties
@@ -13,7 +14,14 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 })
 public class CvdbBackendApplication {
 
+	private void runSpring(String[] args) {
+		SpringApplication springApplication = new SpringApplication(CvdbBackendApplication.class);
+		springApplication.addListeners(new ApplicationPidFileWriter());
+		springApplication.run(args);
+	}
+
 	public static void main(String[] args) {
-		SpringApplication.run(CvdbBackendApplication.class, args);
+		CvdbBackendApplication application = new CvdbBackendApplication();
+		application.runSpring(args);
 	}
 }

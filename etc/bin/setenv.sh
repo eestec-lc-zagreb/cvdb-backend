@@ -1,0 +1,11 @@
+PID_FILE=$APPLICATION_HOME/cvdb-backend.pid
+
+JAVACMD=java
+JAVA_MAIN_CLASS=hr.eestec_zg.cvdbbackend.CvdbBackendApplication
+APPLICATION_MARKER=cvdb-backend
+APPLICATION_CONFIG=file:$APPLICATION_HOME/config
+
+DEFAULT_JVM_OPTS=" -Dapp.name=$APPLICATION_MARKER "
+DEFAULT_JVM_OPTS="$DEFAULT_JVM_OPTS -Dspring.config.location=$APPLICATION_CONFIG -Dlogging.config=$APPLICATION_CONFIG/logback.xml -Xms64M -Xmx128M "
+
+DEFAULT_JVM_OPTS="$DEFAULT_JVM_OPTS"
