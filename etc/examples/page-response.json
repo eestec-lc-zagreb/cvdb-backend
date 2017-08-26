@@ -1,0 +1,22 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "name": "Firstname Lastname",
+      "username": "firstname.lastname",
+      "password": "hidden",
+      "role": "USER",
+      "enabled": true,
+      "modifiedAt": "2017-08-15T12:56:28.136361+02:00",
+      "createdAt": "2017-08-15T12:56:28.136361+02:00"
+    }
+  ],
+  "last": true,
+  "totalPages": 1,
+  "totalElements": 1,
+  "sort": null,
+  "first": true,
+  "numberOfElements": 1,
+  "size": 20,
+  "number": 0
+}
