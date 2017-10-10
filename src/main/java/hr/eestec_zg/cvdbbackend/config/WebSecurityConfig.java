@@ -50,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .formLogin()
-                .loginProcessingUrl("/login")
+                .loginProcessingUrl("/v1/auth/login")
                 .successHandler(authSuccessHandler)
                 .failureHandler(authFailureHandler)
                 .permitAll()
@@ -62,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
                 .logout()
-                .logoutUrl("/logout")
+                .logoutUrl("/v1/auth/logout")
                 .logoutSuccessHandler(logoutSuccessHandler)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
